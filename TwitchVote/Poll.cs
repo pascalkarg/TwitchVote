@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
 
 namespace TwitchVote
 {
@@ -61,28 +59,5 @@ namespace TwitchVote
 
             return _votes.Where(p => p.Value.Equals(option, StringComparison.OrdinalIgnoreCase)).Select(p => p.Key);
         }
-
-    }
-
-    public enum VoteState
-    {
-        Disabled,
-        Enabled
-    }
-
-    public readonly struct VoteInfo
-    {
-        public VoteInfo(string displayName, string vote)
-        {
-            if (string.IsNullOrEmpty(displayName))
-                throw new ArgumentException("message", nameof(displayName));
-            if (string.IsNullOrWhiteSpace(vote))
-                throw new ArgumentException("message", nameof(vote));
-            DisplayName = displayName;
-            Vote = vote;
-        }
-
-        public string DisplayName { get; }
-        public string Vote { get; }
     }
 }
