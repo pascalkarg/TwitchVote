@@ -13,7 +13,6 @@ namespace TwitchVote
 
         public Poll(IEnumerable<string> options)
         {
-
             if (options is null)
                 throw new ArgumentNullException(nameof(options));
 
